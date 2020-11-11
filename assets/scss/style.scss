@@ -1,0 +1,123 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+@mixin border-radius($topleft, $topright, $bottomleft, $bottomright) {
+	-webkit-border-top-left-radius: $topleft;
+	-moz-border-top-left-radius: $topleft;
+	-ms-border-top-left-radius: $topleft;
+	border-top-left-radius: $topleft;
+
+	-webkit-border-top-right-radius: $topright;
+	-moz-border-top-right-radius: $topright;
+	-ms-border-top-right-radius: $topright;
+	border-top-right-radius: $topright;
+
+	-webkit-border-bottom-left-radius: $bottomleft;
+	-moz-border-bottom-left-radius: $bottomleft;
+	-ms-border-bottom-left-radius: $bottomleft;
+	border-bottom-left-radius: $bottomleft;
+
+	-webkit-border-bottom-right-radius: $bottomright;
+	-moz-border-bottom-right-radius: $bottomright;
+	-ms-border-bottom-right-radius: $bottomright;
+	border-bottom-right-radius: $bottomright;
+}
+
+@mixin box-shadow($color) {
+	-webkit-box-shadow: 0 0 20px 5px $color;
+	box-shadow: 0 0 20px 5px $color;
+}
+
+@mixin transition($duration) {
+	-webkit-transition: all $duration ease-in-out;
+	-moz-transition: all $duration ease-in-out;
+	-ms-transition: all $duration ease-in-out;
+	-o-transition: all $duration ease-in-out;
+	transition: all $duration ease-in-out;
+}
+
+$body: 'Montserrat', Helvetica, Arial, sans-serif;
+$heading: 'Arvo', sans-serif;
+$firstcolor: #003b64;
+$secondcolor: #1677bb;
+$thirdcolor: #333333;
+
+$facebook: #3b5998;
+$twitter: #55acee;
+
+input[type=password]::-ms-reveal, input[type=password]::-ms-clear { display: none; } /* Removing this since I'll add it myself for browser compatibility */
+input[type="email"], input[type="password"], input[type="submit"] { @include border-radius(360px, 360px, 360px, 360px); }
+input[type="email"], input[type="password"] { padding-left: 2.75em; }
+input[type="submit"] {
+	width: 100%;
+	background-color: $firstcolor;
+	color: white;
+	border: 0;
+	padding: 8px;
+	@include transition(0.25s);
+}
+input[type="submit"]:hover {
+	background-color: $secondcolor;
+}
+
+label {
+	display: inline;
+	position: absolute;
+	top: 0.65em;
+	left: 2.30em;
+	color: #999999;
+}
+
+form {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+form .row .row { margin: 0 -0.9375rem }
+
+body { color: #999999; background-image: url('http://www.migloo.be/labs/lab1/img/background.jpg'); background-size: cover; }
+
+p.intro1, p.intro2 {
+	text-align: center;
+	color:white;
+	font-size: 0.9em;
+	margin-bottom: 40px;
+	font-family: 'Open Sans';
+}
+
+p.intro2 { opacity: 0; }
+
+.wrapper, .morphHeader {
+	font-family: $body;
+	background-color: #f2f2f2;
+	@include border-radius(6px, 6px, 6px, 6px);
+}
+
+.header, .footer, .morphHeader {
+	text-align: center;
+	text-transform: uppercase;
+}
+.header, .morphHeader {
+	@include border-radius(6px, 6px, 0, 0);
+	font-size: 1.7em;
+	background-image: url('http://www.migloo.be/labs/lab1/img/backgroundBox.png');
+	padding: 2em;
+	color: white;
+}
+.username { padding-top: 1.25rem; }
+.submit, .footer { padding-bottom: 1.25rem; }
+
+.morphButton { z-index: 999; @include border-radius(360px, 360px, 360px, 360px); }
+.morphButton, .morphHeader {
+	opacity: 0;
+	background-color: $secondcolor;
+	text-align: center;
+}
+.loading, .success, .failure { color: white; line-height: 34px !important; text-align: center; }
+
+.tooltip p { font-family: 'Open Sans'; font-size: 13px; line-height: 16px; }
+
+.columns { position: relative; }
